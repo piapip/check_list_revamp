@@ -9,3 +9,9 @@ I need some advises about simple versatile multiple dimensional structure. I've 
 The log recording function, it's surely convinient for users to track down who has done what. But it has a huge problem. That if we have too many functions that need to log event, it's like you double the contract's deploy fee. 
 
 Initially, this contract cost ~ 0.03 ETH, now it has doubled up to ~ 0.07 ETH, which is quite significant. So, this ultility needs to be considered in the future.
+
+With the back-end revamp, front-end has to do a lot of works. Like a fuck ton of works since all the logics that can be handled so easily in back-end are no longer used anymore because we want to reduce as much initial cost as possible. In modern working plan, in my opinion, Blockchain is actually a terrible database for teamworking. There will be only 3 sides, the BrSE, clients, and a small dev team consist of 4-5 people at max. Since the developers must be fullstack dev unless everything is designed flawlessly right from the start. Any changes that need to be made in Blockchain will lead to heavily mental stress, not to mention a huge chunk of money required to relaunch the contract.
+
+(Unlike other databases like MongoDB or SQL, the value that Solidity returns are 0,1,2,3... of an Array, not "Carrots","Cabbage",... of "Vegetable" object, so fixing code will be a pain since everything seems so vague.)
+
+To reduce the cost of the project, frontend has to do a lot of work. The code is really either ugly or super long to read which is also super ugly. 
