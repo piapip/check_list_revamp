@@ -33,13 +33,16 @@ contract IdeaFactory {
   mapping (address => uint) ownerListCount;
   mapping (uint => string) listToLog;
 
+  event newIdea();
+
   function addNewIdea(string calldata _name) external {
     listIdea[listIdeaCount].push(Idea(_name, false, false, listIdeaCount, 0, address(0)));
     listIdeaSize[listIdeaCount] = 1;
     listToOwner[listIdeaCount].push(msg.sender);
     listOwnerCount[listIdeaCount] = 1;
     ownerListCount[msg.sender]++;
-    listIdeaCount++;}
+    listIdeaCount++;
+    emit newIdea();}
 }
 
 // Seems like the more I reupload those contracts to Blockchain, the more money it costs.

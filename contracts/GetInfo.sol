@@ -11,19 +11,22 @@ contract GetInfo is IdeaHelper{
             listIdea[_listId][_ideaId].close, listIdea[_listId][_ideaId].rank,
             listIdea[_listId][_ideaId].depth, listIdea[_listId][_ideaId].finisher);}
 
-  function getLogByList(uint _listId) external view onlyOwner(_listId) returns(string memory) {
-    return listToLog[_listId];}
-
-  function getListByOwner(address _owner) external view returns(uint[] memory, uint[] memory){
+  function getListByOwner(address _owner) external view returns(uint[] memory){
     uint[] memory list = new uint[](ownerListCount[_owner]);
-    uint[] memory listSize = new uint[](ownerListCount[_owner]);
     uint counter = 0;
     for(uint i = 0; i < listIdeaCount; i++) {
       if(isOwner(i)){
         list[counter] = i;
-        listSize[counter] = listIdeaSize[i];
         counter++;
       }
     }
-    return (list, listSize);}
+    return list;}
+
+  function getListInfo(uint _listId) external view onlyOwner(_listId) returns(uint, address[] memory, string memory) {
+    return (listIdeaSize[_listId], listToOwner[_listId], listToLog[_listId]);
+  }
+
+  function getOwnerName(address _friend) external view returns(bytes memory) {
+    return nicknameList[msg.sender][_friend];
+  }
 }
