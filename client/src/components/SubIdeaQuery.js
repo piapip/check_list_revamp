@@ -12,12 +12,12 @@ class SubIdeaQuery extends Component {
 
   addIdea = () => {
     if (this.state.ideaName || this.state.ideaName !== '')
-      this.props.addNewIdea(this.props.listId,this.state.ideaName, this.props.rank, this.props.depth)
+      this.props.addNewIdea(this.props.listId, this.state.ideaName, this.props.rank, this.props.depth)
   }
 
   render() {
-    return (
-      <div>
+    const showQuery =
+      (this.props.condition) ? (
         <Card>
           <Form>
             <CardBody>
@@ -26,6 +26,10 @@ class SubIdeaQuery extends Component {
             </CardBody>
           </Form>
         </Card>
+      ) : "";
+    return (
+      <div>
+        {showQuery}
       </div>
     );
   }

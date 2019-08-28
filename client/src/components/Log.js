@@ -31,7 +31,7 @@ class Log extends Component {
       ) : "No action recorded yet";
     return (
       <div>
-        <Button onClick={this.toggle}>{this.props.target} log</Button>
+        <Button onClick={this.toggle}>{this.props.target}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>{this.props.header}</ModalHeader>
           <ModalBody>

@@ -28,6 +28,14 @@ class IdeaList extends Component {
   addIdeaSameTier = (listId, name, ideaRank, ideaDepth) => {
     this.props.myContract.methods.addIdeaSameTier(listId, name, ideaRank, ideaDepth).send({ from: this.props.account })
   }
+
+  close = (listId, ideaId) => {
+    this.props.myContract.methods.closeIdea(listId, ideaId).send({ from: this.props.account })
+  }
+
+  open = (listId, ideaId) => {
+    this.props.myContract.methods.openIdea(listId, ideaId).send({ from: this.props.account })
+  }
   
   // 0.0 -> 1.0 -> 1.1, 1.2
   //        2.0 -> 2.1, 2.2
@@ -36,6 +44,8 @@ class IdeaList extends Component {
     const printMainIdea =
       (this.props.myIdeas) ? (
         this.props.myIdeas.map((list) => {
+          const ownerTagBoard = 
+          (list.owners.length === 1) ? (list.owners.length + " owner") : (list.owners.length + " owners");
           return (
             <Card key={list.id}>
               <CardBody>
@@ -44,13 +54,13 @@ class IdeaList extends Component {
                   <div className="float-right" >
                     <Log
                       header="Partner List"
-                      target="Owner"
+                      target={ownerTagBoard}
                       log={list.owners} />
                   </div>
                 </div>
                 <Log
                   header={list.info[0].name}
-                  target="Event"
+                  target="Event log"
                   log={list.log} />
                 <br />
                 <InputGroup>
@@ -66,7 +76,8 @@ class IdeaList extends Component {
                       rank={list.maxRank}
                       depth={0}
                       addNewIdea={this.addIdeaSameTier}
-                      option="Add sub Idea" />
+                      option="Add sub Idea"
+                      condition={list.isTrueOwner} />
                     <CardBody>
                       <SubIdeaList
                         listId={list.id}
@@ -74,6 +85,8 @@ class IdeaList extends Component {
                         list={list}
                         finish={this.finish}
                         unfinish={this.unfinish}
+                        open={this.open}
+                        close={this.close}
                         account={this.props.account}
                         myContract={this.props.myContract}/>
                     </CardBody>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardBody, UncontrolledCollapse, Button } from 'reactstrap';
+import { Card, CardBody, UncontrolledCollapse, Button, InputGroup, InputGroupAddon } from 'reactstrap';
 
 import SubIdeaTier1 from './SubIdeaTier1'
 import SubIdeaTier2 from './SubIdeaTier2'
@@ -19,6 +19,14 @@ class SubIdeaList extends Component {
     this.props.myContract.methods.unfinish(listId, ideaId).send({ from: this.props.account })
   }
 
+  open = (event) => {
+    this.props.open(this.props.listId, event.target.value)
+  }
+
+  close = (event) => {
+    this.props.close(this.props.listId, event.target.value)
+  }
+
   render() {
     let SubIdeas = []
     this.props.list.info.map((idea) => {
@@ -34,12 +42,27 @@ class SubIdeaList extends Component {
     const printSubIdeas =
       (SubIdeas.length > 0) ? (
         SubIdeas.map((list) => {
+          const lockBoardTag =
+            (this.props.list.isTrueOwner) ? (
+              (list[0].close) ? (
+                <InputGroupAddon addonType="append"><Button onClick={this.open} value={list[0].ideaId}>Unlock</Button></InputGroupAddon>
+              ) : (
+                  <InputGroupAddon addonType="append"><Button onClick={this.close} value={list[0].ideaId}>Lock</Button></InputGroupAddon>
+                )
+            ) : "";
+
           return (
             <Card key={list[0].rank + "." + list[0].depth}>
               <CardBody>
                 <SubIdeaTier1
-                  list={list} />
-                <Button id={"togglerSubIdea" + list[0].rank + list[0].depth} outline>Show detail</Button>
+                  list={list}
+                  listId={this.props.listId}
+                  finish={this.finish}
+                  unfinish={this.unfinish} />
+                <InputGroup>
+                  <Button id={"togglerSubIdea" + list[0].rank + list[0].depth} outline>Show detail</Button>
+                  {lockBoardTag}
+                </InputGroup>
                 <UncontrolledCollapse toggler={"togglerSubIdea" + list[0].rank + list[0].depth}>
                   <Card>
                     <CardBody>
@@ -48,9 +71,13 @@ class SubIdeaList extends Component {
                         rank={list[0].rank}
                         depth={this.props.rankMaxDepth[list[0].rank]}
                         addNewIdea={this.addIdeaLowerTier}
-                        option="Add more details  " />
+                        option="Add more details" 
+                        condition={!list[0].close}/>
                       <SubIdeaTier2
-                        list={list} />
+                        list={list}
+                        listId={this.props.listId}
+                        finish={this.finish}
+                        unfinish={this.unfinish} />
                     </CardBody>
                   </Card>
                 </UncontrolledCollapse>
