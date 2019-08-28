@@ -33,6 +33,10 @@ contract IdeaOwnerShip is IdeaFactory {
     require(isTrueOwner(_listId), "You didn't create it");
     _;}
 
+  modifier onlyFinisher(uint _listId, uint _ideaId) {
+    require(listIdea[_listId][_ideaId].finisher == msg.sender, "Should have been faster");
+    _;}
+
   function shareOwnerShip(address _friendAddress, bytes calldata _name, uint _listId) external onlyTrueOwner(_listId) {
     nicknameList[msg.sender][_friendAddress] = bytes(_name);
     listToOwner[_listId].push(_friendAddress);

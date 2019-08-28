@@ -11,7 +11,7 @@ contract ListIdeaHelper is IdeaOwnerShip{
   // List 0  0 - 1 - 2 - 3 - 4  ---(rank 0, 1, 2,...)
   //             1   1   1      |||(depth)
   //                 2          <- it doesn't work like this anymore
-  function addIdeaSameTier(uint _listId, string calldata _ideaName, uint _ideaRank, uint _ideaDepth) external onlyOwner(_listId){
+  function addIdeaSameTier(uint _listId, string calldata _ideaName, uint _ideaRank, uint _ideaDepth) external onlyTrueOwner(_listId){
     listIdea[_listId].push(Idea(_ideaName, false, false, _ideaRank+1, _ideaDepth, address(0)));
     listIdeaSize[_listId]++;
     writeLog(_listId, " has added ", bytes(_ideaName));}

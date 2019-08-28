@@ -26,7 +26,7 @@ contract GetInfo is IdeaHelper{
     return (listIdeaSize[_listId], listToOwner[_listId], listToLog[_listId]);
   }
 
-  function getOwnerName(address _friend) external view returns(bytes memory) {
-    return nicknameList[msg.sender][_friend];
+  function getOwnerName(address _owner, address _friend) external view returns(bytes memory) {
+    return nicknameList[_owner][_friend];
   }
 }

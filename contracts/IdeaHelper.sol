@@ -17,7 +17,7 @@ contract IdeaHelper is ListIdeaHelper{
     listIdea[_listId][_ideaId].close = true;
     writeLog(_listId, " has closed ", (bytes)(listIdea[_listId][_ideaId].name));}
 
-  function openIdea(uint _listId, uint _ideaId) external onlyTrueOwner(_listId){
+  function openIdea(uint _listId, uint _ideaId) external onlyFinisher(_listId, _ideaId) onlyTrueOwner(_listId){
     listIdea[_listId][_ideaId].close = false;
     writeLog(_listId, " has opened ", (bytes)(listIdea[_listId][_ideaId].name));}
 
