@@ -2,9 +2,11 @@
 
 It has the same idea with the Trello clone but it's not entirely the same thing.
 
-Rule of thumb when coding in Blockchain: if I have to do anything between to variables other than assigning values in Blockchain, it means that I'm doing something wrong. DO NOT CALCULATE IN BLOCKCHAIN. IT'S EXPENSIVE. 
+Rule of thumb when coding in Blockchain: if you have to do anything between variables other than assigning values, you are doing something very wrong. DO NOT DO COMPLICATE CALCULATE IN BLOCKCHAIN. IT'S EXPENSIVE.  
 
 I've updated the arrangement of code. Fix something to greatly reduce the cost of deploying the thing. Though, due to the nature of Blockchain, its readablity won't be very good. 
+
+PS: I've done some major change in the front-end to make the code somewhat 'readable', still it's very very very VERY hard to have a firm grasp of the whole thing.
 
 I need some advises about simple versatile multiple dimensional structure. I've beens spending two days just to design a proper structure for this idea, I couldn't come up with a proper thought. Windows device regedit have successfully created such structure so I think it's not impossible. Still quite hard though. 
 
@@ -17,3 +19,5 @@ With the back-end revamp, front-end has to do a lot of works. Like a fuck ton of
 (Unlike other databases like MongoDB or SQL, the value that Solidity returns are 0,1,2,3... of an Array, not "Carrots","Cabbage",... of "Vegetable" object, so fixing code will be a pain since everything seems so vague.)
 
 To reduce the cost of the project, frontend has to do a lot of work. The code is really either ugly or super long to read which is also super ugly. 
+
+My design skill are showing flaws due to lack of experience. If only I had a partner working with me on this one.
