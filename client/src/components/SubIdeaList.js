@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Card, CardBody, UncontrolledCollapse, Button, InputGroup, InputGroupAddon } from 'reactstrap';
+import { Card, CardHeader, CardBody, UncontrolledCollapse, Button, InputGroup, InputGroupAddon } from 'reactstrap';
 
+import ProgressBar from './ProgessBar'
 import SubIdeaTier1 from './SubIdeaTier1'
+import Finisher from './Finisher'
 import SubIdeaTier2 from './SubIdeaTier2'
 import SubIdeaQuery from './SubIdeaQuery'
 
@@ -38,7 +40,6 @@ class SubIdeaList extends Component {
       return 0;
     })
     SubIdeas.shift()
-
     const printSubIdeas =
       (SubIdeas.length > 0) ? (
         SubIdeas.map((list) => {
@@ -53,12 +54,24 @@ class SubIdeaList extends Component {
 
           return (
             <Card key={list[0].rank + "." + list[0].depth}>
+              <CardHeader>
+                <ProgressBar
+                  color="success"
+                  finished={this.props.list.finished[list[0].rank]}
+                  unfinished={this.props.list.unfinished[list[0].rank]} />
+              </CardHeader>
               <CardBody>
-                <SubIdeaTier1
-                  list={list}
-                  listId={this.props.listId}
-                  finish={this.finish}
-                  unfinish={this.unfinish} />
+                <div className="float-left">
+                  <SubIdeaTier1
+                    list={list}
+                    listId={this.props.listId}
+                    finish={this.finish}
+                    unfinish={this.unfinish} />
+                </div>
+                <div className="float-right">
+                  <Finisher
+                    name={list[0].finisher} />
+                </div>
                 <InputGroup>
                   <Button id={"togglerSubIdea" + list[0].rank + list[0].depth} outline>Show detail</Button>
                   {lockBoardTag}
@@ -71,8 +84,8 @@ class SubIdeaList extends Component {
                         rank={list[0].rank}
                         depth={this.props.rankMaxDepth[list[0].rank]}
                         addNewIdea={this.addIdeaLowerTier}
-                        option="Add more details" 
-                        condition={!list[0].close}/>
+                        option="Add more details"
+                        condition={!list[0].close} />
                       <SubIdeaTier2
                         list={list}
                         listId={this.props.listId}

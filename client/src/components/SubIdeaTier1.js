@@ -13,9 +13,8 @@ class SubIdeaTier1 extends Component {
   }
 
   render() {
-    // console.log(this.props)
     const showName =
-      (this.props.list[0].finish) ? (
+      (this.props.list[0].finished) ? (
         <div className="custom-control custom-checkbox">
           <input type="checkbox" className="custom-control-input"
             id={`defaultSubIdeaTier1Checked${this.props.list[0].rank + "." + this.props.list[0].depth}`} onChange={this.unfinish} checked />

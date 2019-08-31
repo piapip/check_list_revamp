@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Card, CardBody, CardText, UncontrolledCollapse, Button, Input, InputGroup, InputGroupAddon } from 'reactstrap';
+import { Card, CardHeader, CardBody, CardText, UncontrolledCollapse, Button, Input, InputGroup, InputGroupAddon } from 'reactstrap';
 
+import ProgressBar from './ProgessBar'
 import Log from './Log';
 import SubIdeaList from './SubIdeaList';
 import SubIdeaQuery from './SubIdeaQuery';
@@ -36,18 +37,25 @@ class IdeaList extends Component {
   open = (listId, ideaId) => {
     this.props.myContract.methods.openIdea(listId, ideaId).send({ from: this.props.account })
   }
-  
+
   // 0.0 -> 1.0 -> 1.1, 1.2
   //        2.0 -> 2.1, 2.2
 
   render() {
     const printMainIdea =
+    
       (this.props.myIdeas) ? (
         this.props.myIdeas.map((list) => {
-          const ownerTagBoard = 
-          (list.owners.length === 1) ? (list.owners.length + " owner") : (list.owners.length + " owners");
+          const ownerTagBoard =
+            (list.owners.length === 1) ? (list.owners.length + " owner") : (list.owners.length + " owners");
           return (
             <Card key={list.id}>
+              <CardHeader>
+                <ProgressBar
+                  color="primary"
+                  unfinished={list.unfinished[0]}
+                  finished={list.finished[0]} />
+              </CardHeader>
               <CardBody>
                 <div className="clearfix">
                   <CardText className="float-left">{list.info[0].name}</CardText>
@@ -83,12 +91,10 @@ class IdeaList extends Component {
                         listId={list.id}
                         rankMaxDepth={list.rankMaxDepth}
                         list={list}
-                        finish={this.finish}
-                        unfinish={this.unfinish}
                         open={this.open}
                         close={this.close}
                         account={this.props.account}
-                        myContract={this.props.myContract}/>
+                        myContract={this.props.myContract} />
                     </CardBody>
                   </Card>
                 </UncontrolledCollapse>
