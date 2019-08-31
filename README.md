@@ -10,6 +10,6 @@ To reduce the cost of the project, frontend has to do a lot of work. The code is
 
 My design skill are showing flaws due to lack of experience. If only I had a partner working with me on this one.
 
-Initial cost so far (could be a lot better I think): 
-Deploy: ~0.07 ETH (~11.7607 USD)
-Every other action: ~0.003 - 0.005 ETH (50 cents - 84 cents)
+Initial cost so far (could be a lot better I think): <br />
+Deploy: ~0.07 ETH (~11.7607 USD) <br />
+Every other action: ~0.003 - 0.005 ETH (50 cents - 84 cents) <br />
