@@ -1,1 +1,24 @@
+Improvement compared to the previous check list: <br />
+- Can be developed, expanded as much as I like.
+- Lower the deploy's cost significantly.
+- Nice naming so it's easier to fix if ever needed.
+- Many short pieces of codes, follow SOLID rule in a smart way.
 
+What I learned from doing this thing: <br />
+- How to use OOP in Blockchain, using it well? That I'm not sure but it's runable.
+- How to setup a truly Blockchain DB that fits the nature of Blockchain.
+- Improve my Front-end skills by a ton. Especially my skills to work with Blockchain. 
+- Cleaner code.
+- Rule of thumb when coding in Blockchain: if you have to do anything between variables other than assigning values, you are doing something very wrong. DO NOT DO COMPLICATE CALCULATE IN BLOCKCHAIN. IT'S EXPENSIVE.
+
+Can this thing be improved and how? 
+Yes, definitely. Read the rant I wrote below.
+
+At first I was trying to recreate Trello but due to the nature of Blockchain, it swayed me to doing something else, still nice though. 
+I could have updated it to be the idea sharer which could be used in couple companies and actually enticing people to contribute their thoughts to cultivate the company. But it at least 3 more functions (about 2 more sol file and some reorganize and a very thoughtful of a fee list to setup transfer system) It will take a lot of time for something I'm doing for fun so I'll stop here for a bit.
+With the back-end revamp, front-end has to do a lot of works. Like a fuck ton of works since all the logics that can be handled so easily in back-end are no longer used anymore because we want to reduce as much initial cost as possible. In modern working plan, in my opinion, Blockchain is actually a terrible database for teamworking. There will be only 3 sides, the BrSE, clients, and a small dev team consist of 4-5 people at max. Since the developers must be fullstack dev unless everything is designed flawlessly right from the start. Any changes that need to be made in Blockchain will lead to heavily mental stress, not to mention a huge chunk of money required to relaunch the contract.
+(Unlike other databases like MongoDB or SQL, the value that Solidity returns are 0,1,2,3... of an Array, not "Carrots","Cabbage",... of "Vegetable" object, so fixing code will be a pain since everything seems so vague.)
+PS: I've done some major change in the front-end to make the code somewhat 'readable', still it's very very very VERY hard to have a firm grasp of the whole thing.
+
+To reduce the cost of the project, frontend has to do a lot of work. The code is really either ugly or super long to read which is also super ugly.
+My design skill are showing flaws due to lack of experience. If only I had a partner working with me on this one.
