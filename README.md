@@ -23,3 +23,7 @@ My design skill are showing flaws due to lack of experience. If only I had a par
 I could have updated it to be the idea sharer, could be used in couple companies and actually enticing people to contribute their thoughts to cultivate the company. But it at least 3 more functions (about 2 more sol file and some reorganize and a very thoughtful of a fee list to setup transfer system) It will take a lot of time for something I'm doing for fun so I'll stop here for a bit. 
 
 At first I was trying to recreate Trello but due to the nature of Blockchain, it swayed me to doing something else, still nice though.
+
+Fee so far (could be a lot better I think): 
+Deploy: ~0.007 ETH (~1.17607 USD)
+Every other action: ~0.003 - 0.005 ETH (50 cents - 84 cents)
