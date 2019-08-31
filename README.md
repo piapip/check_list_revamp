@@ -1,7 +1,5 @@
 # check_list_revamp
 
-It has the same idea with the Trello clone but it's not entirely the same thing.
-
 Rule of thumb when coding in Blockchain: if you have to do anything between variables other than assigning values, you are doing something very wrong. DO NOT DO COMPLICATE CALCULATE IN BLOCKCHAIN. IT'S EXPENSIVE.  
 
 I've updated the arrangement of code. Fix something to greatly reduce the cost of deploying the thing. Though, due to the nature of Blockchain, its readablity won't be very good. 
@@ -21,3 +19,7 @@ PS: I've done some major change in the front-end to make the code somewhat 'read
 To reduce the cost of the project, frontend has to do a lot of work. The code is really either ugly or super long to read which is also super ugly. 
 
 My design skill are showing flaws due to lack of experience. If only I had a partner working with me on this one.
+
+I could have updated it to be the idea sharer, could be used in couple companies and actually enticing people to contribute their thoughts to cultivate the company. But it at least 3 more functions (about 2 more sol file and some reorganize and a very thoughtful of a fee list to setup transfer system) It will take a lot of time for something I'm doing for fun so I'll stop here for a bit. 
+
+At first I was trying to recreate Trello but due to the nature of Blockchain, it swayed me to doing something else, still nice though.
