@@ -1,6 +1,8 @@
 pragma solidity ^0.5.8;
 
-import "./IdeaHelper.sol";
+import "./4_IdeaHelper.sol";
+
+// EVERY ACTION NEEDS A COST TO PAY THE TRUE OWNER
 
 contract GetInfo is IdeaHelper{
 
@@ -23,10 +25,8 @@ contract GetInfo is IdeaHelper{
     return list;}
 
   function getListInfo(uint _listId) external view onlyOwner(_listId) returns(uint, address[] memory, string memory) {
-    return (listIdeaSize[_listId], listToOwner[_listId], listToLog[_listId]);
-  }
+    return (listIdeaSize[_listId], listToOwner[_listId], listToLog[_listId]);}
 
   function getOwnerName(address _owner, address _friend) external view returns(bytes memory) {
-    return nicknameList[_owner][_friend];
-  }
+    return nicknameList[_owner][_friend];}
 }
