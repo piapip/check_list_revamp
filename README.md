@@ -1,5 +1,7 @@
 # check_list_revamp
 
+CASE CLOSE:
+
 Rule of thumb when coding in Blockchain: if you have to do anything between variables other than assigning values, you are doing something very wrong. DO NOT DO COMPLICATE CALCULATE IN BLOCKCHAIN. IT'S EXPENSIVE.  
 
 I need some advises about simple versatile multiple dimensional structure. I've beens spending two days just to design a proper structure for this idea, I couldn't come up with a proper thought. Windows device regedit have successfully created such structure so I think it's not impossible. Still quite hard though. 
@@ -13,3 +15,11 @@ My design skill are showing flaws due to lack of experience. If only I had a par
 Initial cost so far (could be a lot better I think): <br />
 Deploy: ~0.07 ETH (~11.7607 USD) <br />
 Every other action: ~0.003 - 0.005 ETH (50 cents - 84 cents) <br />
+
+NEW OBJECTIVE: 
+Learn how to integrate Blockchain and other database, for example: mongoDB, SQL. Blockchain is so expensive that the use of it should worth the cost. <br /> 
+Blockchain properties: <br />
++ Security
++ Authoritative
+- Speed
+- Signature verification (So annoying to have to sign everything before to able to issue another command)
